@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Bouncy Ball</title>
+    <style></style>
+  </head>
+
+  <body>
+    <canvas id="gameCanvas" width="400" height="300"></canvas>
+    <script>
+      // declare variables
+      const FPS = 30;
+      var bs = 30;
+      var bx, by;
+      var xv, yv;
+      var canvas, context;
+
+      // load canvas
+      canvas = document.getElementById("gameCanvas");
+      context = canvas.getContext("2d");
+
+      // ball starting position
+      bx = canvas.width / 2;
+      by = canvas.height / 2;
+
+      //   speed
+      vx = 0;
+      vy = 3;
+
+      var radius = 20;
+
+      function update() {
+        context.clearRect(0, 0, canvas.width, canvas.height);
+
+        if (bx > canvas.width - radius || bx < radius) {
+          vx = -vx;
+        }
+        if (by > canvas.height - radius || by < radius) {
+          vy = -vy;
+        }
+
+        // move the ball
+        bx += vx;
+        by += vy;
+
+        context.beginPath();
+        context.arc(bx, by, radius, 0, 2 * Math.PI);
+        context.fillStyle = "orange";
+        context.fill();
+        context.stroke();
+        context.closePath();
+
+        window.requestAnimationFrame(update);
+      }
+      update();
+    </script>
+  </body>
+</html>

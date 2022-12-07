@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Canvas</title>
+
+    <style type="text/css">
+      body,
+      html {
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div>
+      <div class="text-center">
+        <canvas
+          id="animation"
+          width="900"
+          height="600"
+          style="border: 2px solid #2d0057; background: #2d0057"
+        ></canvas>
+      </div>
+    </div>
+    <script type="text/javascript">
+      var canvas = document.getElementById("animation");
+      var ctx = canvas.getContext("2d");
+      x = 100;
+      y = 100;
+      vx = 0.0;
+      vy = 2;
+      r = 70;
+
+      function createCircle() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        if (x > canvas.width - r || x < r) {
+          vx = -vx;
+        }
+        if (y > canvas.height - r || y < r) {
+          vy = -vy;
+        }
+        x += vx;
+        y += vy;
+
+        ctx.beginPath();
+        ctx.arc(x, y, r, 0, 2 * Math.PI);
+        ctx.fillStyle = "orange";
+        ctx.fill();
+        ctx.stroke();
+        ctx.closePath();
+
+        window.requestAnimationFrame(createCircle);
+      }
+      createCircle();
+    </script>
+  </body>
+</html>
