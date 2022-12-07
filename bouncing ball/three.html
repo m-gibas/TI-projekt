@@ -30,20 +30,16 @@
       x = 100;
       y = 100;
       vx = 0.0;
-      vy = 5;
+      vy = 10;
       r = 50;
 
       console.log(H);
-      console.log(H[6650]);
+      console.log(T);
 
       let i = 0;
+      let number = 0;
       let value = 0;
       let values = [0, 1767, 3076, 4789, 5346, 5762, 6105, 6290, 6483, 6624];
-
-      setInterval(() => {
-        i++;
-        value = H[values[i]];
-      }, 1100);
 
       function createCircle() {
         // ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -56,13 +52,17 @@
 
         // 0 1767 3076 4789 5346 5762 6105 6290 6483 6624
 
-        if (i === 9) i = 0;
+        // if (i === 9) i = 0;
+        if (i === 6679) {
+          i = 0;
+          number = 0;
+        }
 
-        if (y - r < value * 120 && vy < 0) {
+        if (y - r < 0 && vy < 0) {
           vy = -vy;
         }
 
-        console.log(value * 120);
+        // console.log(value * 120);
 
         if (y + r > canvas.height && vy > 0) {
           vy = -vy;
@@ -70,13 +70,19 @@
         x += vx;
         y += vy;
 
+        if (H[i] === 0) number++;
+
         ctx.beginPath();
-        ctx.arc(x + i * 2 * r, y, r, 0, 2 * Math.PI);
-        ctx.fillStyle = "orange";
+        // ctx.arc(x + number * r, canvas.height - H[i] * 120, r, 0, 2 * Math.PI);
+        ctx.arc(T[i] * 100, canvas.height - H[i] * 120, r, 0, 2 * Math.PI);
+        ctx.fillStyle = "grey";
         ctx.fill();
         ctx.stroke();
         ctx.closePath();
 
+        // console.log(H[i]);
+
+        i++;
         window.requestAnimationFrame(createCircle);
       }
       createCircle();
