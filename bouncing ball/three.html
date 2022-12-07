@@ -10,6 +10,7 @@
         height: 100%;
       }
     </style>
+    <script src="obliczeniajs.js"></script>
   </head>
 
   <body>
@@ -29,22 +30,48 @@
       x = 100;
       y = 100;
       vx = 0.0;
-      vy = 2;
-      r = 70;
+      vy = 5;
+      r = 50;
+
+      console.log(H);
+      console.log(H[6650]);
+
+      let i = 0;
+      let value = 0;
+      let values = [0, 1767, 3076, 4789, 5346, 5762, 6105, 6290, 6483, 6624];
+
+      setInterval(() => {
+        i++;
+        value = H[values[i]];
+      }, 1100);
 
       function createCircle() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        // ctx.clearRect(0, 0, canvas.width, canvas.height);
         if (x > canvas.width - r || x < r) {
           vx = -vx;
         }
-        if (y > canvas.height - r || y < r) {
+        // if (y > canvas.height - r || y < r) {
+        //   vy = -vy;
+        // }
+
+        // 0 1767 3076 4789 5346 5762 6105 6290 6483 6624
+
+        if (i === 9) i = 0;
+
+        if (y - r < value * 120 && vy < 0) {
+          vy = -vy;
+        }
+
+        console.log(value * 120);
+
+        if (y + r > canvas.height && vy > 0) {
           vy = -vy;
         }
         x += vx;
         y += vy;
 
         ctx.beginPath();
-        ctx.arc(x, y, r, 0, 2 * Math.PI);
+        ctx.arc(x + i * 2 * r, y, r, 0, 2 * Math.PI);
         ctx.fillStyle = "orange";
         ctx.fill();
         ctx.stroke();
@@ -54,5 +81,19 @@
       }
       createCircle();
     </script>
+    <!-- <script>
+      function obliczenia() {
+        let g = 9.81;
+        let H = 10;
+        let t = 10;
+        //   y(t) = h - (gt^2)/2
+        let y;
+        for (let i = 0; i < t; i++) {
+          y = H - (g * t * t) / 2;
+          console.log(y);
+        }
+      }
+      obliczenia();
+    </script> -->
   </body>
 </html>

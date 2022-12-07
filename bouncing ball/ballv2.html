@@ -36,7 +36,13 @@
         if (bx > canvas.width - radius || bx < radius) {
           vx = -vx;
         }
-        if (by > canvas.height - radius || by < radius) {
+        // if (by > canvas.height - radius || by < radius) {
+        //   vy = -vy;
+        // }
+        if (by < 0 && yv < 0) {
+          vy = -vy;
+        }
+        if (by > canvas.height && vy > 0) {
           vy = -vy;
         }
 

@@ -31,7 +31,7 @@
       //   xv = Math.floor(Math.random() * 76 + 25) / FPS;
       //   yv = Math.floor(Math.random() * 76 + 25) / FPS;
       xv = 0;
-      yv = 2;
+      yv = 3;
 
       //   // random ball direction
       //   if (Math.floor(Math.random() * 2) == 0) {
@@ -54,7 +54,7 @@
         if (bx + bs / 2 > canvas.width && xv > 0) {
           xv = -xv;
         }
-        if (by - bs / 2 < 0 && yv < 0) {
+        if (by - bs / 2 - 50 < 0 && yv < 0) {
           yv = -yv;
         }
         if (by + bs / 2 > canvas.height && yv > 0) {
