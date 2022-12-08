@@ -22,7 +22,7 @@ while (hmax > hstop) {
     if (hnew < 0) {
       t = t_last + 2 * Math.sqrt(2 * hmax / g);
       freefall = false;
-      t_last = t + tau;
+      t_last = t + dt;
       h = 0;
     } else {
       t = t + dt;
@@ -30,7 +30,7 @@ while (hmax > hstop) {
       h = hnew;
     }
   } else {
-    t = t + tau;
+    t = t + dt;
     vmax = vmax * rho;
     v = vmax;
     freefall = true;
@@ -42,6 +42,11 @@ while (hmax > hstop) {
   T.push(t);
 }
 
+// for(let i=0; i<H.length; i++) {
+//   if(H[i] === 0) {
+//     H.splice(i, 2);
+//     // T.pop();
+//   }
+// }
+
 console.log("stopped bouncing at t=\n", t);
-// console.log(H);
-// console.log(T);
