@@ -1,14 +1,6 @@
 var H, T, dt, freefall, g, h, h0, hmax, hnew, hstop, rho, t, t_last, tau, v, vmax;
 
-
-// const {Data} = require('data.js');
-
-import {
-  val
-} from '../main/data';
-
 // let ch = document.getElementById("quantity").value;
-var ch = val;
 console.log(ch);
 
 h0 = 7;
@@ -54,12 +46,5 @@ while (hmax > hstop) {
   H.push(h);
   T.push(t);
 }
-
-// for(let i=0; i<H.length; i++) {
-//   if(H[i] === 0) {
-//     H.splice(i, 2);
-//     // T.pop();
-//   }
-// }
 
 console.log("stopped bouncing at t=\n", t);
