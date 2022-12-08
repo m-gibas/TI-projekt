@@ -1,14 +1,15 @@
 var H, T, dt, freefall, g, h, h0, hmax, hnew, hstop, rho, t, t_last, tau, v, vmax;
 
 
-// const {Data} = require('data.js');
+// // const {Data} = require('data.js');
 
-import {
-  val
-} from '../main/data';
+// import {
+//   val
+// } from '../main/data';
 
-// let ch = document.getElementById("quantity").value;
-var ch = val;
+// // let ch = document.getElementById("quantity").value;
+
+var ch = formDataObj.quantity;
 console.log(ch);
 
 h0 = 7;

@@ -7,29 +7,20 @@
     <title>Odbicie sprężyste kulki</title>
     <script src="canvas.js" type="module" defer></script>
     <script src="obliczenia.js" type="module" defer></script>
-    <script src="data.js" type="module" defer></script>
-    <!-- <script>
-      var Data = {
-        val: 0,
-      };
-      function getData() {
-        Data.val = document.getElementById("quantity");
-        module.exports = { Data };
-      }
-    </script> -->
+    <!-- potestowac to na node.js, jak nie to idk, cos innego trzeba -->
+    <script src="dataToJSON.js" defer></script>
   </head>
   <body>
     <h1>Witam!</h1>
     <!-- mozna wybierac tylko wysokosc zrzutu kulki, bo przy zmianie predkosci wychodzi przeskok -->
-    <!-- <form action="../bouncing ball/three.html"> -->
-    <form action="../bouncing ball/three.html">
+    <form id="height-form" action="../bouncing ball/three.html">
       <label for="quantity">
         Podaj wysokość, z jakiej ma spadać piłeczka (od 1 do 10):
       </label>
       <input type="number" id="quantity" name="quantity" min="1" max="10" />
-      <input type="submit" onclick="getData()" />
+      <!-- <input type="submit" /> -->
+      <button class="btn" type="submit">Submit</button>
     </form>
-    <!-- <button type="button" onclick="pageRedirect()">Submit</button> -->
 
     <div>
       <div class="text-center">
