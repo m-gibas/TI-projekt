@@ -20,14 +20,12 @@ function createCircle() {
 
 if (i === H.length) {
     i = 0;
-    // ctx.fillStyle = "black"; mialo zmieniac ostatnia kulke na czarna
 }
 
 x += vx;
 y += vy;
 
 ctx.beginPath();
-// ctx.arc(x + number * r, canvas.height - H[i] * 120, r, 0, 2 * Math.PI);
 ctx.arc(T[i] * 100, canvas.height - H[i] * 120 - r, r, 0, 2 * Math.PI);
 ctx.fillStyle = "grey";
 ctx.fill();
@@ -37,4 +35,3 @@ ctx.closePath();
 i++;
 myReq = window.requestAnimationFrame(createCircle);
 }
-// createCircle();

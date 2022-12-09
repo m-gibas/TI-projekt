@@ -1,32 +1,7 @@
 var H, T, dt, freefall, g, h, h0, hmax, hnew, hstop, rho, t, t_last, tau, v, vmax;
 
 
-// // const {Data} = require('data.js');
-
-// import {
-//   val
-// } from '../main/data';
-
-// // let ch = document.getElementById("quantity").value;
-
-// import data from './dane.json' assert { type: 'JSON' };
-// console.log(data);
-
-// import data from '../main/dane.JSON' assert { type: 'JSON' };
-// console.log(data);
-// var h0_user;
-
-// const response = await fetch("../main/dane.JSON");
-// const number = await response.json();
-
-// h0_user = number.quantity;
-
-// console.log(h0_user);
-
-let ch = document.getElementById("quantity").value;
-console.log(ch);  
-
-// h0 = 5;
+function oblicz() {
 h0 = parseInt(document.getElementById("quantity").value);
 v = 0;
 g = 10;
@@ -73,11 +48,6 @@ while (hmax > hstop) {
   T.push(t);
 }
 
-// for(let i=0; i<H.length; i++) {
-//   if(H[i] === 0) {
-//     H.splice(i, 2);
-//     // T.pop();
-//   }
-// }
 
 console.log("stopped bouncing at t=\n", t);
+}
