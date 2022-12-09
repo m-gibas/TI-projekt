@@ -23,8 +23,11 @@ var H, T, dt, freefall, g, h, h0, hmax, hnew, hstop, rho, t, t_last, tau, v, vma
 
 // console.log(h0_user);
 
-h0 = 7;
-// h0 = h0_user;
+let ch = document.getElementById("quantity").value;
+console.log(ch);  
+
+// h0 = 5;
+h0 = parseInt(document.getElementById("quantity").value);
 v = 0;
 g = 10;
 t = 0;
@@ -39,6 +42,8 @@ t_last = -Math.sqrt(2 * h0 / g);
 vmax = Math.sqrt(2 * hmax * g);
 H = [];
 T = [];
+
+console.log(vmax);
 
 while (hmax > hstop) {
   if (freefall) {
