@@ -18,6 +18,11 @@ nav {
   margin: 0.5rem 2rem;
 }
 
+nav a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
 nav div {
   transition: all 0.5s;
   width: 10%;
