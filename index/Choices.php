@@ -12,7 +12,7 @@ session_start() ;
 *       Odczyt danych przesłanych z formularza
 */
 function _readChoices () {
-    $this->data['quantity'] = $_POST['quantity'] ;
+    $this->data['quantity'] = $_POST["quantity"] ;
   }  
 
 function _write () {
@@ -28,12 +28,13 @@ function _write () {
 */  
 function _saveChoices(){
     $this->dbh = dba_open( $this->dbfile, "c");
-    $email = $_SESSION['user'];
-    $serialized_data = serialize($this->data) ;
+    $email = $_SESSION['email'];
+    $serialized_data = serialize($this->data['quantity']) ;
     dba_insert($email, $serialized_data, $this->dbh) ;
+    // dba_replace($email, $serialized_data, $this->dbh) ;
     
     dba_close($this->dbh) ;
-    return $text;
+    return "email: " . $serialized_data;
 }
 
 /*  

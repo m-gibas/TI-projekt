@@ -37,26 +37,26 @@
       ?>
     </nav>
     <section>
-      <form method="post" id="height-form">
+      <form method="post" action="phpSave.php" id="height-form">
         <label for="quantity">
           Podaj wysokość, z jakiej ma spadać piłeczka (od 1 do 10):
         </label>
         <input type="number" id="quantity" name="quantity" min="1" max="10" />
         <button id="mylink">Zatwierdź wybór</button>
-
+        <?php
+        if ($user->_is_logged()) {
+          // echo "<form method=\"post\" action=\" phpSave.php\">";
+          // echo "<button id=\"userChoices\" onclick=\"phpSave()\">Zapisz swoje wybory</button>";
+          echo "<button type=\"submit\" id=\"userChoices\">Zapisz swoje wybory</button>";
+          // echo "</form>";
+        }
+        ?>
       </form>
       <div>
         <button onclick="createCircle()">Rysuj</button>
         <button onclick="createCircle2x()">Rysuj 2x szybciej</button>
         <button onclick="createCircle5x()">Rysuj 5x szybciej</button>
-        <?php
-        if ($user->_is_logged()) {
-          echo "<form method=\"post\" action=\" phpSave.php\">";
-          // echo "<button id=\"userChoices\" onclick=\"phpSave()\">Zapisz swoje wybory</button>";
-          echo "<button id=\"userChoices\">Zapisz swoje wybory</button>";
-          echo "</form>";
-        }
-        ?>
+        
       </div>
       <div>
         <div class="text-center">
