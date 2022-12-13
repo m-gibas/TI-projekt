@@ -45,10 +45,7 @@
         <button id="mylink">Zatwierdź wybór</button>
         <?php
         if ($user->_is_logged()) {
-          // echo "<form method=\"post\" action=\" phpSave.php\">";
-          // echo "<button id=\"userChoices\" onclick=\"phpSave()\">Zapisz swoje wybory</button>";
           echo "<button type=\"submit\" id=\"userChoices\">Zapisz swoje wybory</button>";
-          // echo "</form>";
         }
         ?>
       </form>
@@ -102,14 +99,6 @@
       }
     }
 
-    function phpSave() {
-      <?php
-        $choices = new Choices;
-        $choices->_readChoices();
-        $choices->_saveChoices();
-        echo "console.log(\"dziala\")";
-      ?>
-    }
 
   </script>
 </body>

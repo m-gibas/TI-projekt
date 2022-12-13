@@ -26,16 +26,35 @@ function _write () {
 *    bazy Berkeley DB:
 *    klucz (e-mail&znacznik czasowy) => wartość(informacja) 
 */  
-function _saveChoices(){
-    $this->dbh = dba_open( $this->dbfile, "c");
-    $email = $_SESSION['email'];
-    $serialized_data = serialize($this->data['quantity']) ;
-    dba_insert($email, $serialized_data, $this->dbh) ;
-    // dba_replace($email, $serialized_data, $this->dbh) ;
+// function _saveChoices(){
+//     $this->dbh = dba_open( $this->dbfile, "c");
+//     $email = $_SESSION['email'];
+//     $serialized_data = serialize($this->data['quantity']) ;
+//     dba_insert($email, $serialized_data, $this->dbh) ;
+//     // dba_replace($email, $serialized_data, $this->dbh) ;
     
+//     dba_close($this->dbh) ;
+//     return "email: " . $serialized_data;
+// }
+
+function _saveChoices () {
+    $this->dbh = dba_open( $this->dbfile, "c");
+    $email = $_SESSION['user'];
+    if ( ! dba_exists($email, $this->dbh ) ) {
+        $serialized_data = serialize($this->data) ;
+        // dba_insert($email, $serialized_data, $this->dbh) ;
+        dba_delete($email, $this->dbh) ;
+        dba_insert($email, $serialized_data, $this->dbh) ;
+        $text = 'Dane zostały zapisane' ;
+    } else {    
+        // dba_replace($email, $serialized_data, $this->dbh) ;
+        dba_delete($email, $this->dbh) ;
+        dba_insert($email, $serialized_data, $this->dbh) ;
+        $text = 'Dane dla podanego klucza sa w bazie danych' ;
+    }
     dba_close($this->dbh) ;
-    return "email: " . $serialized_data;
-}
+    return $text ;
+}  
 
 /*  
 *   Metoda  _read_messages()
