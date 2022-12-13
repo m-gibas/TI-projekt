@@ -1,0 +1,10 @@
+#userChoices {
+  margin: 0 5rem;
+  background: rgb(100, 100, 217);
+}
+  
+button {
+  padding: 0.2rem;
+  background: rgb(141, 174, 193);
+  cursor: pointer;
+}

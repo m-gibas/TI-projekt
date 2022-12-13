@@ -5,10 +5,8 @@ function __autoload($class_name) {
     include $class_name . '.php' ;
 }
  
-$reg = new Register_new ;
-$reg->_read();
-// $reg->_write();
-// echo $reg->_save();
-$reg->_save();
+$user = new Register_new;
+ 
+echo $user->_logout() ;
 exit();
 ?>
