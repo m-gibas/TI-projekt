@@ -1,0 +1,13 @@
+3
+one162
+a:4:{s:5:"fname";s:3:"one";s:5:"lname";s:3:"one";s:5:"email";s:3:"one";s:14:"hashedPassword";s:60:"$2y$10$s2MmsTHXsBa6BkbEBbqRRePY1OFKN0F8GKfBMtUY1er/kHEuV9Xhy";}3
+two162
+a:4:{s:5:"fname";s:3:"two";s:5:"lname";s:3:"two";s:5:"email";s:3:"two";s:14:"hashedPassword";s:60:"$2y$10$F0XqOthM90pCgJ0PuvsM9OTIORxwFmv3SB55LtMAf1IpykDyzN.GW";}5
+email170
+a:4:{s:5:"fname";s:4:"imie";s:5:"lname";s:8:"nazwisko";s:5:"email";s:5:"email";s:14:"hashedPassword";s:60:"$2y$10$LVolLo1z32DL6j0rc6w9y.SBTem3vAHGPu7.FDNqNx1KFRjsT1c/i";}6
+email2173
+a:4:{s:5:"fname";s:5:"imie2";s:5:"lname";s:9:"nazwisko2";s:5:"email";s:6:"email2";s:14:"hashedPassword";s:60:"$2y$10$g59qcray9/l9p8Qm3hJm.eHD31yHiZkBKVXAu6P37Hy0UFf1lQq1O";}15
+three@three.com179
+a:4:{s:5:"fname";s:5:"three";s:5:"lname";s:5:"three";s:5:"email";s:15:"three@three.com";s:14:"hashedPassword";s:60:"$2y$10$8p3x.LUcNDQJ4BjYh95aAOtbQxjXsQS0wY0FzbNOWHGQMptJvxWea";}7
+two@two166
+a:4:{s:5:"fname";s:3:"two";s:5:"lname";s:3:"two";s:5:"email";s:7:"two@two";s:14:"hashedPassword";s:60:"$2y$10$ZZOZGs4byXGYj70JwzJoDeWZnARq3OveYrejWuty5j2gF0QslvCTS";}
