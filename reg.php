@@ -7,8 +7,6 @@ function __autoload($class_name) {
  
 $reg = new Register_new ;
 $reg->_read();
-// $reg->_write();
-// echo $reg->_save();
 $reg->_save();
 exit();
 ?>

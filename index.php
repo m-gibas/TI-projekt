@@ -2,12 +2,12 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Projekt - TI</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="button.css" />
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="button.css">
   <script src="obliczeniajs.js" defer></script>
 
   <?php
@@ -15,6 +15,8 @@
       include $class_name . '.php';
     }
     $user = new Register_new;
+    $choices = new Choices;
+
   ?>
 </head>
 
@@ -26,27 +28,29 @@
     <nav>
       <?php
         if (!$user->_is_logged()) {
-          echo "<div><a href=\"index.html\">Strona główna</a></div>";
+          echo "<div><a href=\"index.php\">Strona główna</a></div>";
           echo "<div><a href=\"reg.html\">Rejestracja</a></div>";
           echo "<div><a href=\"log.html\">Logowanie</a></div>";
         } else {
-          echo "<div><a href=\"index.html\">Strona główna</a></div>";
+          echo "<div><a href=\"index.php\">Strona główna</a></div>";
           echo "<div><a href=\"profil.php\">Profil użytkownika</a></div>";
           echo "<div><a href=\"out.php\">Wylogowanie</a></div>";
         }
       ?>
     </nav>
     <section>
+      <h2>Animacja!</h2>
       <form method="post" action="phpSave.php" id="height-form">
         <label for="quantity">
           Podaj wysokość, z jakiej ma spadać piłeczka (od 1 do 10):
         </label>
-        <input type="number" id="quantity" name="quantity" min="1" max="10" />
+        <input type="number" id="quantity" name="quantity" min="1" max="10">
         <button id="mylink">Zatwierdź wybór</button>
         <?php
         if ($user->_is_logged()) {
-          echo "<button type=\"submit\" id=\"userChoices\">Zapisz swoje wybory</button>";
-        }
+          echo "<button type=\"submit\" id=\"userChoices\">Zapisz swój wybór</button>";
+          }
+
         ?>
       </form>
       <div>

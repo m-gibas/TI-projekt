@@ -2,8 +2,7 @@
  
 class Register {
  
-   protected $data = array()  ;
- 
+   protected $data = array();
    function __construct () { 
    }
        
@@ -11,7 +10,6 @@ class Register {
       $this->data['fname'] = $_POST['fname'] ;
       $this->data['lname'] = $_POST['lname'] ;
       $this->data['email'] = $_POST['email'] ;
-      // $this->data['pass']  = $_POST['pass'] ;
       $this->data['hashedPassword'] = password_hash($_POST['pass'], PASSWORD_DEFAULT);
    }   
    
@@ -23,9 +21,6 @@ class Register {
       echo "E-mail: ". $this->data['email'] ." <br/>" ;
       echo "Hasło: ". $this->data['hashedPassword'] ." <br/>" ; 
    }  
-
-
- 
 
 }
 ?>

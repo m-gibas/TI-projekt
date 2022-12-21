@@ -20,12 +20,9 @@
         if ( $user->_is_logged() ) { 
         $user->_read_user();
         echo $user->_write();
-        // $choices->_read_choices();
-        // echo $choices->_write();
 
         $hasValue = false;
         $table = $choices->_read_choices();
-        // echo 'Informacje uzytkownika : '. $choices->_get_user() . '<br><br>';
         echo 'Wysokość użytkownika: ';
         foreach ( $table as $key => $record ) {
             echo $record['quantity']."<br>";

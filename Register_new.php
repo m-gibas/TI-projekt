@@ -2,16 +2,13 @@
 class Register_new extends Register {
  
     private $dbh;
-    private $dbfile = "files/datadb.db" ;
+    private $dbfile = "files/datadb.db";
  
     function __construct () {
         parent::__construct() ;  
         session_start() ;
     }
  
-    /*
-    *  Zapis danych do bazy
-    */
     function _save () {
         $this->dbh = dba_open( $this->dbfile, "c");
         if ( ! dba_exists($this->data['email'], $this->dbh ) ) {
@@ -26,32 +23,6 @@ class Register_new extends Register {
     }  
 
   
-
-//    function _readChoices () {
-//       $this->data['quantity'] = $_POST['quantity'] ;
-//     }  
-
-    // function _saveChoices () {
-    //     $this->dbh = dba_open( $this->dbfile, "c");
-    //     $serialized_data = serialize($this->data) ;
-    //     dba_insert($this->data['quantity'], $serialized_data, $this->dbh) ;
-    //     dba_close($this->dbh) ;
-    //     return $text;
-    // }  
-
-    // function _saveChoices(){
-    //     $this->dbh = dba_open( $this->dbfile, "c");
-    //     $email = $_SESSION['user'];
-    //     $serialized_data = serialize($this->data) ;
-    //     dba_insert($email, $serialized_data, $this->dbh) ;
-        
-    //     dba_close($this->dbh) ;
-    //     return $text;
-    // }
-
-    /*
-    * Logowanie uzytkownika do serwisu 
-    */
     function _login() {
         $email = $_POST['email'] ;
         $pass  = $_POST['pass'] ;
@@ -71,10 +42,6 @@ class Register_new extends Register {
         return $text ;
     }
 
-
-    /*
-    * Sprawdzamy czy uzytkownik jest zalogowany 
-    */
     function _is_logged() {
         if ( isset ( $_SESSION['auth'] ) ) { 
         $ret = $_SESSION['auth'] == 'OK' ? true : false ;
@@ -83,9 +50,6 @@ class Register_new extends Register {
     } 
 
 
-    /*
-    * Wylogowanie uzytkownika do serwisu 
-    */
     function _logout() {
         unset($_SESSION); 
         session_destroy();   
@@ -94,9 +58,6 @@ class Register_new extends Register {
     }
 
 
-    /*
-    * Pobranie danych uzytkownika z bazy 
-    */
     function _read_user() {
         $email = $_SESSION['user'] ;
         $this->dbh = dba_open( $this->dbfile, "r");   
@@ -107,7 +68,5 @@ class Register_new extends Register {
         dba_close($this->dbh) ;   
     }
 
-
-   
 }
 ?>
